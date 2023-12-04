@@ -1,0 +1,14 @@
+<div class="row my-4 my-4">
+    <div class="col-md-8 mx-auto">
+        <h1>Confirmation de suppression</h1>
+        <br>
+        <h4>Êtes-vous sûr de vouloir supprimer le contact suivant ?</h4>
+        <p>Nom: {{contact.name}}</p>
+        <p>Téléphone: {{contact.phone}}</p>
+
+        <form method="get" action="/delete/{{contact._id}}">
+            <button type="submit" class="btn btn-danger">Confirmer la suppression</button>
+            <a href="/" class="btn btn-secondary">Annuler</a>
+        </form>
+    </div>
+</div>

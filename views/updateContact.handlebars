@@ -1,0 +1,18 @@
+<div class="row my-4 my-4">
+    <div class="col-md-8 mx-auto">
+        <h3>Modifier un contact</h3>
+        <div class="card p-3">
+            <form action="/update/{{contact._id}}" method="post">
+                <div class="form-group">
+                    <input type="text" name="name" value="{{contact.name}}" placeholder="Nom & Prénom" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="phone" value="{{contact.phone}}" placeholder="Tél" class="form-control">
+                </div>
+                <div class="form-group">
+                    <button type="text" class="btn btn-primary">Valider</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
