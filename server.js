@@ -61,7 +61,7 @@ app.get("/update/:id", async function(req,res){
         const response = await axios.get(`http://localhost:8070/contacts/${req.params.id}`);
         const contact = response.data.contact;
         //console.log(contacts);
-        res.render("updateContact", contact );
+        res.render("updateContact", {contact} );
     } catch (err) {
         console.error(err);
         //res.send(err);
