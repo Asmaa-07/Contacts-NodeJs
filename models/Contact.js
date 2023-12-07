@@ -8,7 +8,7 @@ const contactSchema =mongoose.Schema({
         maxLength: 150
     },
     phone: {
-        type: Number,
+        type: String,
         required: true
     }
 },{

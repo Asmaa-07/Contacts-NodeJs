@@ -5,6 +5,8 @@ const {contactRoutes} = require("./routes/routes");
 const axios =  require("axios");
 const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
+const config = require('./config');
+
 
 //set template engine
 app.engine("handlebars", exphbs.engine({defaultLayout: "main"}));
@@ -14,10 +16,10 @@ app.set("view engine", "handlebars");
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
-const port = 8070;
-const url = "mongodb+srv://asmaaantari07:asmaaantari07@cluster0.nwxlucy.mongodb.net/contacts?retryWrites=true&w=majority";
 
 //connect to database
+const port = config.port;
+const url = config.mongoURL;
 mongoose.connect(url).then(() => console.log("connected")).catch(err => console.log(err));
 
 //use contact routes
@@ -44,7 +46,7 @@ app.get("/add", function (req, res){
 //post contact to database
 app.post("/add", function (req, res){
     const contact =req.body;
-    axios.post("http://localhost:8070/contacts/add", contact)
+    axios.post("http://localhost:8070/contacts", contact)
     .then(response => {
         if(!response.data.error){
             res.redirect("/");
